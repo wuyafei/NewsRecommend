@@ -255,7 +255,7 @@ int main(){
 	for (int i = 0; i < NUM_USER; i++){
 		Y[i] = new int[NUM_NEWS];
 	}
-	loaddata("E:\\BaiduYunPan\\Academic\\workspace\\python\\bigdata\\remapped_uid_nid_train.txt", Y);
+	loaddata("../data/remapped_uid_nid_train.txt", Y);
 	cout << "load data Ok!" << endl;
 
 	int** M = new int*[NUM_NEWS];
@@ -270,7 +270,7 @@ int main(){
 		S[i] = new float[NUM_NEWS];
 	}
 	/*int* tm = new int[NUM_NEWS];
-	publishTime("E:\\BaiduYunPan\\Academic\\workspace\\python\\bigdata\\remapped_nid_time.txt", tm);
+	publishTime("../data/remapped_nid_time.txt", tm);
 	similarityMatrix_t(M, S, tm);*/
 	similarityMatrix(M, S);
 	for (int i = 0; i < NUM_NEWS; i++){
@@ -295,12 +295,12 @@ int main(){
 	rmReadNews(Y, R);
 	cout << "generate recommendation matrix Ok!" << endl;
 
-	outputMatrix("E:\\BaiduYunPan\\Academic\\workspace\\python\\bigdata\\matrix_knn_train.txt", R);
+	outputMatrix("../data/matrix_knn_train.txt", R);
 	cout << "output recommendation matrix Ok!" << endl;
 
 	int* tr = new int[NUM_USER];
 	topRecommendation(R, tr);
-	testRecommendation("E:\\BaiduYunPan\\Academic\\workspace\\python\\bigdata\\remapped_uid_nid_test.txt", tr);
+	testRecommendation("../data/remapped_uid_nid_test.txt", tr);
 	cout << "finished!!!" << endl;
 
 	delete [] tr;
